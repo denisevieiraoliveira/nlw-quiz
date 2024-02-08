@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Quiz</title>
+</head>
+
+<body>
+    <main>
+        <header class="cabecalho">
+            <img src="./img/Logo.svg" alt="Logo nlw expert">
+            <h1 class="principal__titulo">Teste seus conhecimentos</h1>
+        </header>
+
+        <div id="quiz"></div>
+
+        <template><!---->
+            <div class="quiz-item">
+                <div class="quiz-cabecalho">
+                    <span id="quiz-item__numero">1</span>
+                    <h3 class="quiz-item__titulo">Pergunta 01</h3>
+                </div>
+                <dl class="quiz-item__respostas">
+                    <dt class="item__respostas-opcoes">
+                        <input type="radio" name="item" value="0">
+                        <span>Resposta A</span>
+                    </dt>
+                </dl>
+            </div>
+        </template>
+
+        <div id="acertos">
+            <strong class="acertos-destaque">Acertos</strong>
+            <span>0 de 10</span>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
