@@ -24,8 +24,12 @@ body {
 
 main {
     padding: 0 20px 30px 20px;
-    max-width: 640px;
+    max-width: 740px;
     margin: 0 auto 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
 }
 
 .cabecalho {
@@ -123,8 +127,24 @@ input:checked:before {
     left: 0;
     width: 100vw;
     padding: 1em;
+    align-self: center;
 }
 
 .acertos-destaque {
     font-weight: 700;
+}
+
+#botao__enviar {
+    padding: 10px 30px;
+    border-radius: 8px;
+    background-color: var(--cinza-claro);
+    color: var(--cinza-texto);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#botao__enviar:hover {
+    background-color: var(--lilas);
+    color: var(--preto);
 }
