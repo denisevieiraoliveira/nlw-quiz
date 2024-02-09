@@ -134,7 +134,7 @@ input:checked:before {
     font-weight: 700;
 }
 
-#botao__enviar {
+#botao {
     padding: 10px 30px;
     border-radius: 8px;
     background-color: var(--cinza-claro);
@@ -144,7 +144,7 @@ input:checked:before {
     font-weight: 700;
 }
 
-#botao__enviar:hover {
+#botao:hover {
     background-color: var(--lilas);
     color: var(--preto);
 }
