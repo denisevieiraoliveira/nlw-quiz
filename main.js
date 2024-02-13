@@ -91,51 +91,49 @@ const perguntas = [
     },
 ];
 
-const quiz = document.querySelector('#quiz')
-const template = document.querySelector('template')
-const corretas = new Set()
-const totalDePerguntas = perguntas.length
-const mostrarTotal = document.querySelector('#acertos span')
-let botao = document.querySelector('#botao');
-mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas
+const quiz = document.querySelector('#quiz');
+const template = document.querySelector('template');
+const corretas = new Set();
+const totalDePerguntas = perguntas.length;
+const mostrarTotal = document.querySelector('#acertos span');
+
 
 for (const item of perguntas) {
-    const quizItem = template.content.cloneNode(true)
 
-    quizItem.querySelector('h3').textContent = item.pergunta
-    quizItem.querySelector('#quiz-item__numero').textContent = perguntas.indexOf(item) + 1
+    document.getElementById('acertos').style.display = 'none';
+
+    const quizItem = template.content.cloneNode(true);
+
+    quizItem.querySelector('h3').textContent = item.pergunta;
+    quizItem.querySelector('#quiz-item__numero').textContent = perguntas.indexOf(item) + 1;
 
     for (let resposta of item.respostas) {
-        const dt = quizItem.querySelector('dl dt').cloneNode(true)
-        dt.querySelector('span').textContent = resposta
-        dt.querySelector('input').setAttribute('name', 'pergunta-' + perguntas.indexOf(item))
+        const dt = quizItem.querySelector('dl dt').cloneNode(true);
+        dt.querySelector('span').textContent = resposta;
+        dt.querySelector('input').setAttribute('name', 'pergunta-' + perguntas.indexOf(item));
 
-        //dt.querySelector('input').setAttribute('value', perguntas.indexOf(item))
-        dt.querySelector('input').value = item.respostas.indexOf(resposta)
+        dt.querySelector('input').value = item.respostas.indexOf(resposta);
 
-        // dt.querySelector('input').onchange = (event) => {
-        //     const estaCorreta = event.target.value == item.correta
-        //     corretas.delete(item)
-        //     if (estaCorreta) {
-        //         corretas.add(item)
-        //     }
-        //     mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas
-        // }
+        dt.querySelector('input').onchange = (event) => {
+            const estaCorreta = event.target.value == item.correta;
 
-        quizItem.querySelector('dl').appendChild(dt)
+            corretas.delete(item)
+            if (estaCorreta) {
+                corretas.add(item)
+            }
+        }
+
+        quizItem.querySelector('dl').appendChild(dt);
     }
 
-    quizItem.querySelector('dl dt').remove()
-    quiz.appendChild(quizItem)
+    quizItem.querySelector('dl dt').remove();
+    quiz.appendChild(quizItem);
 }
 
-botao.addEventListener('click', function (event) {
-    for (const item of perguntas) {
-        const estaCorreta = event.target.value == item.correta
-        corretas.delete(item)
-        if (estaCorreta) {
-            corretas.add(item)
-        }
-    }
-    console.log(mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas)
+botao.addEventListener('click', function () {
+    
+    mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas;
+    document.getElementById('acertos').style.display = 'block';
+    document.getElementById('main').style.marginBottom = '2em';
+        
 })

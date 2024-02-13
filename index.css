@@ -8,7 +8,7 @@
     --cinza-medio: #334155;
     --cinza-escuro: #1E293B;
     --lilas: #ad96ff;
-    --preto: #020202;
+    --lilas-claro: #ad96ff
 
     font-family: 'Inter', sans-serif;
     font-synthesis: none;
@@ -25,11 +25,9 @@ body {
 main {
     padding: 0 20px 30px 20px;
     max-width: 740px;
-    margin: 0 auto 2em;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 18px;
 }
 
 .cabecalho {
@@ -54,7 +52,7 @@ main {
 }
 
 #quiz-item__numero {
-    background: var(--cinza-medio);
+    background: var(--lilas);
     width: 28px;
     height: 28px;
     display: flex;
@@ -127,6 +125,7 @@ input:checked:before {
     left: 0;
     width: 100vw;
     padding: 1em;
+    display: inline;
     align-self: center;
 }
 
@@ -136,15 +135,22 @@ input:checked:before {
 
 #botao {
     padding: 10px 30px;
+    margin-top: 14px;
     border-radius: 8px;
     background-color: var(--cinza-claro);
     color: var(--cinza-texto);
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
+    width: 130px;
+    align-self: center;
 }
 
 #botao:hover {
     background-color: var(--lilas);
     color: var(--preto);
+}
+
+#acertos {
+    display: none;
 }
