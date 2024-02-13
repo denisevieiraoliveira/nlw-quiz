@@ -18,7 +18,6 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
     background-color: var(--azul-escuro);
     color: var(--cinza-texto);
 }
